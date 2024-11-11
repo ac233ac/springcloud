@@ -1,0 +1,29 @@
+server:
+  port: 9001
+
+spring:   # 服务名称
+  application:
+    name: myshop-user
+  datasource:
+    url: jdbc:mysql://192.168.221.131:3306/springcloud?characterEncoding=UTF8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true # 是否打印sql语句
+    generate-ddl: true # 是否自动建表
+    database: mysql # jpa连接的数据库类型
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    prefer-ip-address: true
+
+management:
+  health:
+    db:
+      enabled: false  # 正确的格式是这样
